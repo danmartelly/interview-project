@@ -1,15 +1,14 @@
-import Search from "./components/Search";
 import Header from "../components/Header";
 import {Link} from 'wouter';
 
-function SearchPage() {
+function CheckoutPage() {
     return (
         <div className="App">
             <Header></Header>
-            <Link href="/checkout">Cart</Link>
-            <Search></Search>
+            <Link href="/">Back to browsing</Link>
+            Checkout
         </div>
     );
 }
 
-export default SearchPage;
+export default CheckoutPage;

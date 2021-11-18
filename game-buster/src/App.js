@@ -1,12 +1,13 @@
 import './App.css';
-import { Link, Route } from 'wouter';
+import { Route } from 'wouter';
 import SearchPage from './SearchPage/SearchPage';
+import CheckoutPage from './CheckoutPage/CheckoutPage';
 
 function App() {
   return (
     <div>
-      <Route path="/" component={SearchPage}></Route>
-      <Route path="/checkout">checkout</Route>
+      <Route path="/" component={SearchPage}/>
+      <Route path="/checkout" component={CheckoutPage}/>
     </div>
   );
 }
