@@ -1,10 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import { Link, Route } from 'wouter';
 import SearchPage from './SearchPage/SearchPage';
 
 function App() {
   return (
-    <SearchPage/>
+    <div>
+      <Route path="/" component={SearchPage}></Route>
+      <Route path="/checkout">checkout</Route>
+    </div>
   );
 }
 
