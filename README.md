@@ -1,25 +1,29 @@
-# Gravie Software Engineer Challenge
+This project was created for the gravie developer interview test
 
-## Instructions
-After completing the challenge below, please send us an email with the location of your repository. If your repository is private, be sure to add us as collaborators so we can view your code.
+It uses Javascript/React and Python/FastAPI
 
-### Time Box
-3-4 Hours
+# Setup
+## React
+You'll need to have the latest npm and all that jazz.
+I haven't tested it, but you can probably do `npm install` from within the `game-buster` folder.
 
-## Synopsis
+## FastAPI
+I used Python3. To get FastAPI on my computer I did `python3 -m pip install fastapi["all"]`
+This also installs uvicorn which will let you run a server
 
-For this challenge you will implement the Giant Bomb API to create an application that will allow a user to search games and "rent" them. The application should consist of at least two unique pages (`search` and `checkout`). Your view should display the game thumbnail and title, and the rest is up to you. You can use any language and or framework you'd like.
+# Running
+## React
+`npm start` from `game-buster` folder
 
-![Giant Bomb](https://upload.wikimedia.org/wikipedia/en/4/4b/Giant_Bomb_logo.png)
+## FastAPI
+`uvicorn main:app --reload` from `backend` folder
 
-You can get started by signing up for an API key [here](https://www.giantbomb.com/api/).
+# How far along is it?
+- The backend has in memory state, so as long as it's not restarted, it will remember which games have been "rented"
+- Able to search using giant bomb api proxied through my backend
+- Shows thumbnail and title. Links to giant bomb's detail page
+- Can switch over to checkout/cart using React routing so that cart state is remembered. (Cart will not be remembered on refresh.)
+- Can checkout games. Next time a checked out game is searched, it will show that it's rented and you won't be able to add to cart.
 
-### Resources
-
-You can find the quickstart guide [here](https://www.giantbomb.com/forums/api-developers-3017/quick-start-guide-to-using-the-api-1427959/).
-
-You can find a full list of API features [here](https://www.giantbomb.com/api/documentation).
-
-### Questions
-
-Don't hesitate to reach out with any questions. Remember we are more focused on seeing your development process than checking off a list of requirements, so be sure you are able to speak to your code and your thoughts behind it.
+# Known Bugs
+Whenever you add something to your cart, the search page rerenders and you lose the search query you had. To fix it, I think I would use React Context but perhaps that's overkill. Regardless I ran out of time.
