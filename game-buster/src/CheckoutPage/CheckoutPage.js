@@ -13,7 +13,18 @@ function CheckoutPage({
     }
 
     const checkoutHandler = () => {
-        setCart([]); //TODO: needs to actually call API
+        fetch("http://localhost:8000/checkout",
+        {
+            "method": "POST",
+            "headers": {
+                "Content-Type":"application/json",
+                'Accept': 'application/json'
+            },
+            "body": JSON.stringify({
+                "guids": cart.map((g) => g.guid)
+            })
+        })
+        setCart([]);
         alert("Your games will reach you in the mail within 3 business days");
         setLocation("/");
     }

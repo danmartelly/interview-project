@@ -6,10 +6,13 @@ function SearchResult({
 }) {
     return(
         <div>
+            {game.rented && <p>This game is already rented</p>}
             <GameContent game={game}/>
             <button 
+                disabled={game.rented}
                 onClick={() => addHandler(game)}
             >Add to Cart</button>
+            <hr></hr>
         </div>
     );
 }
