@@ -29,5 +29,4 @@ async def search_games(query: str = ""):
         params=payload,
         headers=headers
     )
-    print("jsonXXXX", r.text)
     return {"results": r.json()["results"]}

@@ -2,12 +2,14 @@ import GameContent from "../../components/GameContent";
 
 function SearchResult({
     game,
-    checkboxHandler
+    addHandler
 }) {
     return(
         <div>
-            <input type="checkbox" onChange={(e) => checkboxHandler(game, e.target.checked)}></input>
             <GameContent game={game}/>
+            <button 
+                onClick={() => addHandler(game)}
+            >Add to Cart</button>
         </div>
     );
 }

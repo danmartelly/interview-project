@@ -27,15 +27,10 @@ function SearchPage({
         });
     };
 
-    const checkboxHandler = (game, checked) => {
-        console.log(cart);
-        if (checked) {
-            const index = cart.findIndex((g) => g.guid === game.guid);
-            if (index < 0) {
-                setCart([...cart, game]);
-            }
-        } else if (!checked) {
-            setCart(cart.filter((g) => g.guid != game.guid))
+    const addHandler = (game) => {
+        const index = cart.findIndex((g) => g.guid === game.guid);
+        if (index < 0) {
+            setCart([...cart, game]);
         }
     }
     
@@ -43,7 +38,7 @@ function SearchPage({
     return (
         <div className="App">
             <Header></Header>
-            <Link href="/checkout">Cart</Link>
+            <Link href="/checkout">Cart ({cart.length})</Link>
             <Search
                 onSearchHandler={onSearchHandler}
                 placeholder="game name"
@@ -51,7 +46,7 @@ function SearchPage({
             {results.map((game) => (
                 <SearchResult
                     key={game.guid}
-                    checkboxHandler={checkboxHandler}
+                    addHandler={addHandler}
                     game={game}/>
             ))}
         </div>

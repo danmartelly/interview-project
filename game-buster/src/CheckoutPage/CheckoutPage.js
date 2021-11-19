@@ -9,11 +9,11 @@ function CheckoutPage({
 }) {
     const [, setLocation] = useLocation();
     const deleteHandler = (gameToDelete) => {
-        alert('lets delete');
+        setCart(cart.filter((g) => g.guid != gameToDelete.guid))
     }
 
     const checkoutHandler = () => {
-        setCart([]);
+        setCart([]); //TODO: needs to actually call API
         alert("Your games will reach you in the mail within 3 business days");
         setLocation("/");
     }
